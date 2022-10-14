@@ -1,4 +1,3 @@
-// export {fetchCountries}
 
 const FILTER_ITEMS = 'fields=name,capital,population,flags,languages';
 const URL = 'https://restcountries.com/v3.1';

@@ -7,3 +7,11 @@ export function getRefs() {
 
   return refs;
 }
+
+
+// {{#each abilities}}
+       
+// <li class="list-group-item">{{ability.name}}</li>
+
+// {{#each abilities}}
+
