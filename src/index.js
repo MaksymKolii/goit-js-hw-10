@@ -19,18 +19,18 @@ function onInputChange(e) {
   fetchAPICountries.fetchCountries().then(renderForAll).catch(onError);
 }
 
-function renderForAll(ev) {
-  if (ev.length > 10) {
+function renderForAll(obj) {
+  if (obj.length > 10) {
     Notify.info('Too many matches found. Please enter a more specific name.');
     return;
   }
-  if (ev.length === 1) {
-    // const markup = renderMarkupOneCountry(ev);
+  if (obj.length === 1) {
+    // const markup = renderMarkupOneCountry(obj);
     // refs.countryListInfo.insertAdjacentHTML('beforeend', markup);
 
-    renderOneCountry(ev);
+    renderOneCountry(obj);
   } else {
-    renderCountries(ev);
+    renderCountries(obj);
   }
 }
 
@@ -38,14 +38,14 @@ function onError() {
   Notify.failure('Oops, there is no country with that name');
 }
 
-function renderMarkupOneCountry(ev) {
+function renderMarkupOneCountry(obj) {
   const {
     flags: { svg },
     name: { official },
     capital,
     population,
     languages,
-  } = ev[0];
+  } = obj[0];
 
   return `
       <div class = "country-info__wrapper">
@@ -59,8 +59,8 @@ function renderMarkupOneCountry(ev) {
       ).join(', ')}</p>`;
 }
 
-function renderOneCountry(ev) {
-  const markup = ev
+function renderOneCountry(obj) {
+  const markup = obj
     .map(
       ({
         flags: { svg },
@@ -86,8 +86,8 @@ function renderOneCountry(ev) {
   refs.countryListInfo.insertAdjacentHTML('beforeend', markup);
 }
 
-function renderCountries(ev) {
-  const markup = ev
+function renderCountries(obj) {
+  const markup = obj
     .map(({ flags, name }) => {
       return `
 
