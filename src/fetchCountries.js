@@ -12,7 +12,6 @@ export  class FetchAPICountries {
       if (!response.ok) {
         throw new Error(response.status);
       }
-      // if (response.status === 404) return Promise.reject();
       return response.json();
     });
   }
