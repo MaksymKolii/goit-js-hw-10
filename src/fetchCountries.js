@@ -9,10 +9,10 @@ export  class FetchAPICountries {
 
   fetchCountries() {
     return fetch(`${URL}/name/${this.name}?${FILTER_ITEMS}`).then(response => {
-      // if (!response.ok) {
-      //   throw new Error(response.status);
-      // }
-      if (response.status === 404) return Promise.resolve();
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      // if (response.status === 404) return Promise.reject();
       return response.json();
     });
   }
