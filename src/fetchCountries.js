@@ -1,20 +1,27 @@
-
-export {fetchCountries}
-
+// export {fetchCountries}
 
 const FILTER_ITEMS = 'fields=name,capital,population,flags,languages';
-const URL = 'https://restcountries.com/v3.1'
+const URL = 'https://restcountries.com/v3.1';
 
-function fetchCountries(name){
+export  class FetchAPICountries {
+  constructor() {
+    this.name = '';
+  }
 
-    return fetch(`${URL}/name/${name}?${FILTER_ITEMS}`
-    ).then(
-        (response) => {
-          if (response.status === 404) {
-            return Promise.reject()
-          }
-          return response.json();
-        }
-      );
+  fetchCountries() {
+    return fetch(`${URL}/name/${this.name}?${FILTER_ITEMS}`).then(response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    });
+  }
+
+  get country() {
+    return this.name;
+  }
+
+  set country(newEl) {
+    this.name = newEl;
+  }
 }
-

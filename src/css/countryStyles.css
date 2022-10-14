@@ -1,0 +1,38 @@
+ul,
+ol{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    list-style: none;
+}
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.country-list__title{
+    font-weight: 400;
+    margin-left: 15px;
+    font-size: 20px;
+}
+.country-list__item, .country-info__wrapper{
+
+    display: flex;
+    align-items: center;
+}
+
+.country-info__title{
+
+    font-weight: 700;
+    margin-left: 15px;
+    font-size: 32px
+}
+.country-info-span{
+    font-weight: bold;
+}
